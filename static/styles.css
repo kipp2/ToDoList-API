@@ -1,0 +1,93 @@
+/* Reset and Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navigation Styling */
+nav.tasks {
+    background: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+nav.tasks h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.task-links {
+    list-style: none;
+    padding: 0;
+}
+
+.task-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.task-links a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.task-links a:hover {
+    color: #fff;
+}
+
+/* Sections Styling */
+section {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #218838;
+}
+
+/* Task Sections */
+.ongoing-task, .completed-tasks {
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    min-height: 50px;
+}
