@@ -1,34 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-       <title>To do List</title> 
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>To-Do List</title> 
        <link rel="stylesheet" href="/static/styles.css">
     </head>
     <body>
-        <nav class="Tasks">
+        <nav class="tasks">
             <h2>Scroll Quick Here</h2>
-            <ul class="Task-links">
-                <li><a href="Complete">Complete Tasks</a></li>
-                <li><a href="Incomplete">Ongoing Tasks</a></li>
-                <li><a href="Add Task">New Task</a></li>
+            <ul class="task-links">
+                <li><a href="#complete-tasks">Complete Tasks</a></li>
+                <li><a href="#incomplete-tasks">Ongoing Tasks</a></li>
+                <li><a href="#new-task">New Task</a></li>
             </ul>
         </nav>
-        <section class="New Task">
+
+        <section id="new-task" class="new-task">
             <h1>Enter New Task Below</h1>
-            <form id="New task">
-                <label for="new task">Enter New Task</label>
-                <input type="text" id="new task" placeholder="New Task">
+            <form id="task-form">
+                <label for="task-input">Enter New Task:</label>
+                <input type="text" id="task-input" placeholder="New Task" required>
+
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" required>
+
                 <button type="submit" class="btn">Add Task</button>
             </form>
         </section>
-        <section class="Incomplete Task">
+
+        <section id="incomplete-tasks" class="incomplete-tasks">
             <h1>Ongoing Tasks</h1>
-            <div class="Ongoing Task">
-                <!--Insert Logic to display incomplete tasks here-->
-                
+            <div class="task-list" id="ongoing-task-list">
+                <!-- Newly created tasks will be displayed here -->
+            </div>
+        </section>
+        
+        <section id="complete-tasks" class="complete-tasks">
+            <h1>Complete Tasks</h1>
+            <div class="task-list" id="completed-task-list">
+                <!-- Completed tasks will be displayed here -->
             </div>
         </section>
 
-        
+        <script>
+            document.getElementById("task-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                // Get input values
+                let taskName = document.getElementById("task-input").value;
+                let dueDate = document.getElementById("due-date").value;
+                let creationDate = new Date().toLocaleString(); // Capture current date & time
+
+                // Create task element
+                let taskElement = document.createElement("div");
+                taskElement.classList.add("task-item");
+                taskElement.innerHTML = `
+                    <p><strong>Task:</strong> ${taskName}</p>
+                    <p><strong>Created:</strong> ${creationDate}</p>
+                    <p><strong>Due:</strong> ${dueDate}</p>
+                    <button class="complete-btn">Mark as Complete</button>
+                `;
+
+                // Append to Ongoing Tasks
+                document.getElementById("ongoing-task-list").appendChild(taskElement);
+
+                // Clear form inputs
+                document.getElementById("task-input").value = "";
+                document.getElementById("due-date").value = "";
+            });
+        </script>
     </body>
 </html>
