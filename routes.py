@@ -4,7 +4,7 @@ from models import Task
 from datetime import datetime
 
 
-@app.route("/create_task", methods=[ "POST"])
+@app.route("/", methods=["GET", "POST"])
 def create_task():
     data = request.json
     new_task = Task(
